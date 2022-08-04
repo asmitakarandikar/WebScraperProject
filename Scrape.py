@@ -11,7 +11,8 @@ class Scrape():
         url_list.append(["https://finance.yahoo.com/quote/" + symbol,"ScrapeYahoo.json"])
         url_list.append(["https://www.marketwatch.com/investing/stock/" + symbol, "ScrapeMW.json"])
         url_list.append(["https://www.google.com/finance/quote/" + symbol + ":NASDAQ", "ScrapeGoog.json"])
-        siteList = ["Yahoo", "MarketWatch", "Google"]
+        url_list.append(["https://money.cnn.com/quote/quote.html?symb=" + symbol, "ScrapeCNN.json"])
+        siteList = ["Yahoo", "MarketWatch", "Google", "CNN"]
         count =0
         for url in url_list:
             elements_to_scrape = {}
