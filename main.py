@@ -11,14 +11,14 @@ def root():
     return "Hello World!"
 
 
-s = Scrape("TSLA", elements_to_scrape)
+s = Scrape("TSLA")
 print(s.summary())
 
 @app.get("/v1/{symbol}/summary/")
 def summary(symbol):
     summary_data = {}
     try:
-        s = Scrape(symbol, elements_to_scrape)
+        s = Scrape(symbol)
         summary_data = s.summary()
         
     except TooManyRedirects:
@@ -30,8 +30,4 @@ def summary(symbol):
 
 @app.on_event("startup")
 def startup():
-    f = open("scrape.json")
-    data = f.read()
-    f.close()
-    global elements_to_scrape
-    elements_to_scrape = json.loads(data)
+    return 1
