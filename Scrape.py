@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 class Scrape():
 
     def __init__(self, symbol, elements):
+        url_list = []
         url = "https://finance.yahoo.com/quote/" + symbol
 
         r = requests.get(url)
